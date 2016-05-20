@@ -1,0 +1,8 @@
+Services Management SDK Example
+A test extension intended to demonstrate how to add custom service to Plesk - Tools & Settings - Services Management.
+
+The following techniques are demonstrated:
+
+* Creation of custom service at Plesk - Tools & Settings - Services Management.
+
+* Creation of Start/Stop/Restart/IsRunning actions for custom service.
