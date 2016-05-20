@@ -8,7 +8,7 @@ start)
     else
         touch /usr/local/psa/admin/sbin/modules/custom-service/mycustomservicestarted
         sleep 1
-        if [ -f /usr/local/psa/admin/sbin/modules/custom-service/mycustomservicestarted  ]
+        if [ -f /usr/local/psa/admin/sbin/modules/custom-service/mycustomservicestarted ]
         then
             echo "Started"
             exit 0
@@ -23,7 +23,7 @@ stop)
     then
         rm -rf /usr/local/psa/admin/sbin/modules/custom-service/mycustomservicestarted
         sleep 1
-        if [ -f /usr/local/psa/admin/sbin/modules/custom-service/mycustomservicestarted  ]
+        if [ -f /usr/local/psa/admin/sbin/modules/custom-service/mycustomservicestarted ]
         then
             echo "Failed to stop My custom service"
             exit 1
@@ -81,13 +81,13 @@ isconfigured)
     fi
 ;;
 isinstalled)
-	if [ -f /usr/local/psa/admin/bin/modules/custom-service/mycustomserviceconf  ]
+    if [ -f /usr/local/psa/admin/bin/modules/custom-service/mycustomserviceconf  ]
     then
         echo "My custom service is installed"
         exit 0
-	else
+    else
         echo "My custom service is not installed"
-		exit 1
+	exit 1
     fi
 ;;
 *)
