@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 1999-2016. Parallels IP Holdings GmbH. -->
+<module>
+    <id>customservice</id>
+    <name>Custom service SDK example</name>
+    <description>Example extension for Services management SKD on Linux</description>
+    <version>1.0</version>
+    <release>1</release>
+    <vendor>Plesk</vendor>
+    <plesk_min_version>17.0</plesk_min_version>
+    <os>unix</os>
+</module>

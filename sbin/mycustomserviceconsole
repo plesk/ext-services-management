@@ -1,0 +1,97 @@
+#!/bin/bash
+case $1 in
+start)
+    if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted ]
+    then
+        echo "My custom service is already running"
+        exit 0
+    else
+        touch /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted
+        sleep 1
+        if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted  ]
+        then
+            echo "Started"
+            exit 0
+        else
+            echo "Failed to start My custom service"
+            exit 1
+        fi
+    fi
+;;
+stop)
+    if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted ]
+    then
+        rm -rf /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted
+        sleep 1
+        if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted  ]
+        then
+            echo "Failed to stop My custom service"
+            exit 1
+        else
+            echo "Stopped"
+            exit 0
+        fi
+    else
+        echo "My custom service is already stopped"
+        exit 0
+    fi
+;;
+status)
+    if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted ]
+	then
+		echo "Started"
+		exit 0
+	else
+		echo "Stopped"
+		exit 1
+	fi
+;;
+restart)
+    if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted ]
+    then
+        rm -rf /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted
+        sleep 1
+        if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted  ]
+        then
+            echo "Failed to stop My custom service"
+            exit 1
+        else
+            echo "Stopped"
+        fi
+    fi
+    touch /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted
+    sleep 1
+    if [ -f /usr/local/psa/admin/sbin/modules/customservice/mycustomservicestarted  ]
+    then
+        echo "Started"
+        exit 0
+    else
+        echo "Failed to start My custom service"
+        exit 1
+    fi
+;;
+isconfigured)
+    if [ -x /usr/local/psa/admin/bin/modules/customservice/mycustomserviceconf  ]
+    then
+        echo "My custom service is configured"
+        exit 0
+    else
+        echo "My custom service is not configured"
+        exit 1
+    fi
+;;
+isinstalled)
+	if [ -f /usr/local/psa/admin/bin/modules/customservice/mycustomserviceconf  ]
+    then
+        echo "My custom service is installed"
+        exit 0
+	else
+        echo "My custom service is not installed"
+		exit 1
+    fi
+;;
+*)
+    echo "Use $0 start|stop|restart|status|isconfigured|isinstalled"
+    exit 1
+;;
+esac
