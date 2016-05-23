@@ -1,5 +1,5 @@
 <?php
-// Copyright 1999-2015. Parallels IP Holdings GmbH. All Rights Reserved.
+// Copyright 1999-2016. Parallels IP Holdings GmbH. All Rights Reserved.
 
 class Modules_CustomService_SystemServices extends pm_Hook_SystemServices
 {
